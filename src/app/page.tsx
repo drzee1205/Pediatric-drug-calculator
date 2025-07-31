@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Calculator, Weight, Ruler, Heart, Brain, Lungs, Dna, Droplets, Bone, Shield, Blood, Activity, Virus, Stethoscope, Kidney, Eye, Ear, Baby, User, Download, Bell, Settings, Smartphone, Wifi, WifiOff, Share2, Flask, Syringe, Thermometer, Monitor } from "lucide-react"
+import { Calculator, Weight, Ruler, Heart, Brain, Droplets, Bone, Shield, Activity, Stethoscope, Kidney, Eye, Ear, Baby, User, Download, Bell, Settings, Smartphone, Wifi, WifiOff, Share2, TestTube, Syringe, Monitor } from "lucide-react"
 
 interface MedicalSystem {
   id: string
@@ -359,15 +359,15 @@ export default function PediatricDrugCalculator() {
   const getSystemIcon = (icon: string) => {
     const iconMap: Record<string, React.ReactNode> = {
       "🧠": <Brain className="w-6 h-6" />,
-      "🫁": <Lungs className="w-6 h-6" />,
+      "🫁": <Activity className="w-6 h-6" />,
       "❤️": <Heart className="w-6 h-6" />,
-      "🧬": <Dna className="w-6 h-6" />,
+      "🧬": <Shield className="w-6 h-6" />,
       "💧": <Droplets className="w-6 h-6" />,
       "🦴": <Bone className="w-6 h-6" />,
-      "🔬": <Flask className="w-6 h-6" />,
+      "🔬": <TestTube className="w-6 h-6" />,
       "💉": <Syringe className="w-6 h-6" />,
       "🔥": <Activity className="w-6 h-6" />,
-      "🧪": <Virus className="w-6 h-6" />,
+      "🧪": <TestTube className="w-6 h-6" />,
       "🧫": <Stethoscope className="w-6 h-6" />,
       "⚕️": <Monitor className="w-6 h-6" />,
       "👁️": <Eye className="w-6 h-6" />,

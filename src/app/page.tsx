@@ -10,7 +10,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
-import { Calculator, Weight, Ruler, Heart, Brain, Lungs, Dna, Droplets, Bone, Shield, Blood, Activity, Virus, Stethoscope, Hormone, Kidney, Eye, Ear, Skin, Baby, User, Download, Bell, Settings, Smartphone, Wifi, WifiOff, Share2 } from "lucide-react"
+import { Calculator, Weight, Ruler, Heart, Brain, Lungs, Dna, Droplets, Bone, Shield, Blood, Activity, Virus, Stethoscope, Kidney, Eye, Ear, Baby, User, Download, Bell, Settings, Smartphone, Wifi, WifiOff, Share2, Flask, Syringe, Thermometer, Monitor } from "lucide-react"
 
 interface MedicalSystem {
   id: string
@@ -62,9 +62,8 @@ const medicalSystems: MedicalSystem[] = [
   { id: "13", name: "Nephrology & Urology", description: "Kidney disease, UTI, congenital anomalies", icon: "⚕️", category: "Nephrology" },
   { id: "14", name: "Ophthalmology", description: "Eye disorders and infections", icon: "👁️", category: "Ophthalmology" },
   { id: "15", name: "Otolaryngology (ENT)", description: "Ear, nose, and throat disorders", icon: "👂", category: "ENT" },
-  { id: "16", name: "Dermatology", description: "Skin disorders and infections", icon: "🧴", category: "Dermatology" },
-  { id: "17", name: "Neonatology", description: "Neonatal care and complications", icon: "👶", category: "Neonatology" },
-  { id: "18", name: "Adolescent Medicine", description: "Puberty, mental health, risk behaviors", icon: "🧑‍⚕️", category: "Adolescent" }
+  { id: "16", name: "Neonatology", description: "Neonatal care and complications", icon: "👶", category: "Neonatology" },
+  { id: "17", name: "Adolescent Medicine", description: "Puberty, mental health, risk behaviors", icon: "🧑‍⚕️", category: "Adolescent" }
 ]
 
 export default function PediatricDrugCalculator() {
@@ -365,16 +364,14 @@ export default function PediatricDrugCalculator() {
       "🧬": <Dna className="w-6 h-6" />,
       "💧": <Droplets className="w-6 h-6" />,
       "🦴": <Bone className="w-6 h-6" />,
-      "🔬": <Shield className="w-6 h-6" />,
-      "💉": <Blood className="w-6 h-6" />,
+      "🔬": <Flask className="w-6 h-6" />,
+      "💉": <Syringe className="w-6 h-6" />,
       "🔥": <Activity className="w-6 h-6" />,
       "🧪": <Virus className="w-6 h-6" />,
       "🧫": <Stethoscope className="w-6 h-6" />,
-      "🧠": <Brain className="w-6 h-6" />,
-      "⚕️": <Kidney className="w-6 h-6" />,
+      "⚕️": <Monitor className="w-6 h-6" />,
       "👁️": <Eye className="w-6 h-6" />,
       "👂": <Ear className="w-6 h-6" />,
-      "🧴": <Skin className="w-6 h-6" />,
       "👶": <Baby className="w-6 h-6" />,
       "🧑‍⚕️": <User className="w-6 h-6" />
     }

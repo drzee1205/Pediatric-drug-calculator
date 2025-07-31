@@ -1,0 +1,72 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model MedicalSystem {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  icon        String?
+  category    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  drugs       Drug[]
+}
+
+model Drug {
+  id              String   @id @default(cuid())
+  name            String
+  genericName     String?
+  brandName       String?
+  description     String?
+  medicalSystemId String
+  indications     String?
+  contraindications String?
+  sideEffects     String?
+  monitoring      String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+  medicalSystem   MedicalSystem @relation(fields: [medicalSystemId], references: [id])
+  dosages         Dosage[]
+  calculations    Calculation[]
+}
+
+model Dosage {
+  id           String   @id @default(cuid())
+  drugId       String
+  ageGroup     String   // e.g., "Neonate", "Infant", "Child", "Adolescent"
+  weightRange  String?  // e.g., "3-6 kg", "7-10 kg"
+  dose         String   // e.g., "10-15 mg/kg/day"
+  frequency    String?  // e.g., "q6h", "q8h", "q12h"
+  route        String?  // e.g., "PO", "IV", "IM"
+  maxDose      String?  // e.g., "500 mg/day"
+  minDose      String?  // e.g., "100 mg/day"
+  notes        String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  drug         Drug     @relation(fields: [drugId], references: [id])
+}
+
+model Calculation {
+  id          String   @id @default(cuid())
+  drugId      String
+  patientAge  Int?     // in months
+  patientWeight Float   // in kg
+  calculatedDose String // calculated dose
+  frequency   String?
+  route       String?
+  notes       String?
+  createdAt   DateTime @default(now())
+  drug        Drug     @relation(fields: [drugId], references: [id])
+}
